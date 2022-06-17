@@ -1,0 +1,44 @@
+<div class="container card mt-4">
+<h2>Create New Order</h2>
+<h4>Date: <%= Time.now.strftime("%F")%></h4>
+<%= form_for @order do |f| %>
+
+  <div class="mb-3" >
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, id: :"first_name", class: "form-control" %>
+  </div>
+  <div class="mb-3" >
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, id: :"last_name", class: "form-control"%>
+  </div>
+
+  <div class="mb-3" >
+    <label>Gift Card Value</label>
+    <%= f.number_field :value, step: :any, id: :"gift_card_value", onchange: "fun()", class: "form-control" %>
+  </div>
+    <div class="mb-3">
+    <label>Amount Payable(5% Commission rate)</label>
+    <%= f.number_field :commission, step: :any, placeholder: "Amount Payable", id: :res, class: "form-control" %>
+    </div>
+  <div class="mb-3">
+    <%= f.label :recipients_mobile_number %>
+    <%= f.number_field :mobile, id: :"mobile", class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :address %>
+    <%= f.text_field :address, id: :"address", class: "form-control" %>
+  </div>
+  <div class="mb-3">
+  <%f.number_field :user_id, id: :"order_user_id", value: current_user.id, type: :hidden, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.submit "Place Order" , class:"btn btn-primary"%>
+  </div>
+<% end %>
+<script>
+function fun() {
+  num = document.getElementById("gift_card_value").value;
+  result = parseInt(num)*(0.05);
+  document.getElementById("res").value=result;
+}
+</script>

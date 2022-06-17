@@ -1,0 +1,12 @@
+
+<% if current_user && current_user.role == 0 %>
+<%= link_to '<button type="button">New Order</button>'.html_safe, new_order_path %>
+<%= link_to '<button type="button">Order History</button>'.html_safe, orders_path %>
+<% elsif current_user %>
+<%= link_to '<button type="button">Monthly report</button>'.html_safe, new_order_path %>
+<%= link_to '<button type="button">Order History</button>'.html_safe, orders_path %>
+<%else%>
+<%= "Logged in as #{current_user.email}" %>
+<%= link_to '<button type="button">Login</button>'.html_safe, new_order_path %>
+<%= link_to '<button type="button">Sign Up</button>'.html_safe, orders_path %>
+<%end%>

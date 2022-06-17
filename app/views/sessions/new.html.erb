@@ -1,0 +1,17 @@
+<div class="container card mt-4">
+<h1>Log In</h1>
+<%= form_for :login do |f| %>
+  <div class="mb-3">
+    <%= f.label :email %>
+    <%= f.text_field :email, autofocus: true, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= f.submit "Log In" , class:"btn btn-primary"%>
+    <p>Create account?</p><%= link_to 'Sign Up'.html_safe, users_new_path %>
+  </div>
+  </div>
+<% end %>

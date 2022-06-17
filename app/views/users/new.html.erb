@@ -1,0 +1,24 @@
+<div class="container card mt-4">
+<%= form_for @user do |f| %>
+<h1>Sign Up!</h1>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.label :email %>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.label :password %>
+    <%= f.password_field :password, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
+  </div>
+  <div>
+    <%= f.submit "Sign up", class: "btn btn-primary"%>
+  </div>
+  <p>Have account?</p><%= link_to 'Log In'.html_safe, login_path %>
+<% end %>
